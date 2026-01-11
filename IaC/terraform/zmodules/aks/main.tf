@@ -18,7 +18,7 @@ resource "azurerm_kubernetes_cluster" "this" {
     type           = "VirtualMachineScaleSets"
   }
 
-  # Telemetry addon enabled (workspace exists), but diagnostics aren't bound to the cluster yet (see monitoring module).
+  
   oms_agent {
     log_analytics_workspace_id = var.log_analytics_workspace_id
   }
