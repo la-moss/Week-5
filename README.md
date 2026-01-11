@@ -1,4 +1,4 @@
-# AKS Guardrails Incident Lab (Senior • Azure • Terraform)
+# AKS Guardrails Incident Lab (Azure • Terraform)
 
 This repo is a **hands-on incident lab**: you get an intentionally imperfect AKS platform stack plus a deterministic guardrail that points to what’s missing.
 
