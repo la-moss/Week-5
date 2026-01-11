@@ -27,7 +27,7 @@ resource "azurerm_virtual_network" "dr" {
   tags                = var.tags
 }
 
-# Intentionally only one direction of peering is present (guardrail expects both directions)
+
 resource "azurerm_virtual_network_peering" "primary_to_dr" {
   name                      = "peer-primary-to-dr"
   resource_group_name       = azurerm_resource_group.primary.name
@@ -55,4 +55,3 @@ resource "azurerm_route" "default_egress" {
   next_hop_type       = "Internet"
 }
 
-# Intentionally missing the subnet-to-route-table attachment resource (guardrail expects an explicit association)
