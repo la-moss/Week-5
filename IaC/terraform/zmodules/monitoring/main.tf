@@ -7,8 +7,7 @@ resource "azurerm_log_analytics_workspace" "law" {
   tags                = var.tags
 }
 
-# Intentionally NOT bound to the AKS cluster (guardrail expects a diagnostic setting targeting the kubernetes_cluster)
-# This is a realistic failure mode: diagnostics exist, but not on the critical resource.
+
 resource "azurerm_monitor_diagnostic_setting" "platform_diag" {
   name                       = "diag-platform"
   target_resource_id         = azurerm_log_analytics_workspace.law.id
