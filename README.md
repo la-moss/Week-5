@@ -7,7 +7,7 @@ This repo is a **hands-on incident lab**: you get an intentionally imperfect AKS
 - **Guardrail:** `guardrail unmet: cluster telemetry missing` (multi-signal, offline-safe)
 - **Catalog scenario ID:** `cat-k8s-inc-0066-azure-tf`
 
-## Scenario context (sanitized)
+## Scenario context (sanitised)
 These are **abstract** incident patterns used to shape symptoms and evidence expectations (no real customer data, no IDs).
 
 - 2019-2024 • Containers • Senior — Admission control webhook recursion + autoscaler thrash driving API server saturation
