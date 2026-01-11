@@ -50,7 +50,7 @@ Expected (initial) result: the runner exits non-zero with:
 Start here: **`senior/tasks.md`**.
 
 ## Notes
-- The guardrail is intentionally **config-inspection** (offline-safe); it does not contact Azure.
+- The guardrail is intentionally **config-inspection** (offline-safe); it does not contact Azure, however if you do deploy, ensure that you delete the resources to avoid high costs
 - Terraform applies are not required to complete the exercise—use `terraform validate` and guardrail output as your “gates”.
 
 ---
