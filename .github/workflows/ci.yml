@@ -1,0 +1,45 @@
+name: terraform-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      - name: Terraform fmt/init/validate
+        run: |
+          terraform -chdir=senior/terraform fmt -check
+          terraform -chdir=senior/terraform init -backend=false
+          terraform -chdir=senior/terraform validate
+      - name: Guardrail (offline, topic-specific)
+        run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+          python3 scripts/guardrails/run.py
+name: terraform-ci
+
+on: [push, pull_request]
+
+jobs:
+  tf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+
+      - name: fmt/init/validate (senior/terraform)
+        working-directory: senior/terraform
+        run: |
+          terraform fmt -check
+          terraform init -backend=false
+          terraform validate- name: guardrails (containers baseline)
+  env:
+    IAC_ROOT: senior/terraform
+  run: |
+    python3 -m venv .venv
+    source .venv/bin/activate
+    python3 scripts/guardrails/run.py
