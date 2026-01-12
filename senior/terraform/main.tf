@@ -1,5 +1,5 @@
 module "network" {
-  source = "./zmodules/network"
+  source = "./modules/network"
 
   project_name         = var.project_name
   env                  = var.env
@@ -16,7 +16,7 @@ module "network" {
 }
 
 module "monitoring" {
-  source = "./zmodules/monitoring"
+  source = "./modules/monitoring"
 
   project_name         = var.project_name
   env                  = var.env
@@ -26,7 +26,7 @@ module "monitoring" {
 }
 
 module "aks" {
-  source = "./zmodules/aks"
+  source = "./modules/aks"
 
   project_name         = var.project_name
   env                  = var.env
