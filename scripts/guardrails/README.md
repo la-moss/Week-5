@@ -10,11 +10,19 @@ This repo uses a **deterministic, offline-safe** guardrail for container platfor
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
 python3 scripts/guardrails/run.py
 ```
 
+## Dependencies
+- Uses `python-hcl2` (from `requirements.txt`) to parse Terraform for more accurate checks.
+- Falls back to regex scanning if HCL parsing is unavailable or a file fails to parse.
+
+## Environment
+- `IAC_ROOT` (optional): set to the Terraform root directory. Default is `senior/terraform`.
+
 ## Reference command (verbatim)
-The following is the upstream guardrail command as stored in `guardrails.json`. It is included verbatim for auditability:
+The following is the upstream guardrail command as stored in `guardrails.json`. It is included verbatim for auditability. The local runner wraps this logic with HCL parsing for better accuracy.
 
 ```sh
 python - <<'PY'
